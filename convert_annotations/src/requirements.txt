@@ -1,0 +1,5 @@
+gcsfs
+dask[complete]
+pandas
+numpy
+Pillow

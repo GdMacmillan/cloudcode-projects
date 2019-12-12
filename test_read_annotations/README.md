@@ -1,0 +1,1 @@
+Test read annotations as a kubernetes job

@@ -1,0 +1,8 @@
+{
+    "cloudcode.profile-cluster-map": {
+        "[default]": "gke_open-images-challenge-258705_us-central1-a_standard-cluster-1"
+    },
+    "cloudcode.profile-registry-map": {
+        "[default]": "gcr.io/open-images-challenge-258705"
+    }
+}

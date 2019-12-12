@@ -1,0 +1,29 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: convert-annotations
+spec:
+  template:
+    spec:
+      volumes:
+      - name: google-cloud-key
+        secret:
+          secretName: read-gcs-key
+      containers:
+      - name: run-convert
+        image: convert-annotations
+        volumeMounts:
+        - name: google-cloud-key
+          mountPath: /var/secrets/google
+        env:
+        - name: GOOGLE_APPLICATION_CREDENTIALS
+          value: /var/secrets/google/key.json
+        - name: BRANCH
+          value: switch-to-threading
+      restartPolicy: OnFailure
+      tolerations:
+      - key: "special"
+        operator: Equal
+        value: "true"
+      nodeSelector:
+        cpu-count: high
